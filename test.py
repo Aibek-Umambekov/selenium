@@ -24,4 +24,4 @@ def send_product_to_shopping_cart():
 
 
 send_product_to_shopping_cart()
-# driver.close()
+driver.close()
