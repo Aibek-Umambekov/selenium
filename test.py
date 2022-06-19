@@ -75,7 +75,6 @@ def logining():
 
     login_button = driver.find_element(By.XPATH, '//*[@id="content"]/div/div[2]/div/form/input')
     login_button.click()
-
     print("Test #3 login is complete! ")
 
 
