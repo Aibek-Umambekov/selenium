@@ -1,10 +1,10 @@
-import unittest
+# import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 driver = webdriver.Chrome()
-driver.get('http://tutorialsninja.com/demo')
+# driver.get('http://tutorialsninja.com/demo')
 
 
 def send_product_to_shopping_cart():
@@ -13,7 +13,7 @@ def send_product_to_shopping_cart():
     search_field.send_keys('macbook')
     search_field.send_keys(Keys.RETURN)
 
-    # should be normal id not Xpath
+    # should be normal "id" not "Xpath"
     buy_btn = driver.find_element(By.XPATH, '//*[@id="content"]/div[3]/div[1]/div/div[2]/div[2]/button[1]')
     buy_btn.click()
 
@@ -59,10 +59,27 @@ def registration():
     print("Test #2 registration is complete! ")
 
 
-def login():
-    pass
+def logining():
+    driver.get('http://tutorialsninja.com/demo')
+
+    my_account = driver.find_element(By.CLASS_NAME, 'dropdown')
+    my_account.click()
+    login = driver.find_element(By.LINK_TEXT, 'Login')
+    login.click()
+
+    email_input = driver.find_element(By.NAME, 'email')
+    email_input.send_keys('adam.sender@gmail.com')
+
+    password_input = driver.find_element(By.NAME, 'password')
+    password_input.send_keys('Adam000777')
+
+    login_button = driver.find_element(By.XPATH, '//*[@id="content"]/div/div[2]/div/form/input')
+    login_button.click()
+
+    print("Test #3 login is complete! ")
 
 
-registration()
 send_product_to_shopping_cart()
+registration()
+logining()
 driver.close()
